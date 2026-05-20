@@ -2,6 +2,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 import { motion, useMotionValue, animate, useInView, useTransform } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import heroBg from '../../assets/Tech_hero.webp';
 
 interface AnimatedCounterProps {
   end: number;
@@ -35,7 +36,7 @@ function AnimatedCounter({ end, duration = 2.8, suffix = '' }: AnimatedCounterPr
   return (
     <div ref={ref} className="inline-block w-full">
       <motion.div
-        className="text-3xl font-bold text-amber-400 tabular-nums"
+        className="text-2xl sm:text-3xl font-bold text-amber-400 tabular-nums"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -60,7 +61,7 @@ export function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1758691737387-a89bb8adf768?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwdGVhbSUyMGNvbGxhYm9yYXRpb24lMjBtb2Rlcm4lMjBvZmZpY2V8ZW58MXx8fHwxNzcyNTI2NDcyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral)'
+          backgroundImage: `url(${heroBg})`
         }}
       />
 
@@ -77,25 +78,16 @@ export function Hero() {
 
       <div className="container mx-auto px-5 sm:px-10 lg:px-20 relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8 md:space-y-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/20 backdrop-blur-sm rounded-full text-amber-300 text-sm border border-amber-400/30"
-          >
-            <Sparkles className="w-4 h-4" />
-            <span>Buzzing with Innovation Since 2024</span>
-          </motion.div>
-
+          {/* Removed Buzzing Badge */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white px-2 sm:px-4 md:px-0"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white px-2 sm:px-4 md:px-0"
           >
-            The Hive Mind of{' '}
+            Your Delivery Partner for{' '}
             <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
-              Elite Tech Talent
+              Reliable Banks & Digital Platforms
             </span>
           </motion.h1>
 
@@ -105,9 +97,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-base sm:text-lg md:text-xl text-amber-50 max-w-[90%] sm:max-w-3xl mx-auto px-2 sm:px-4 md:px-0 leading-relaxed"
           >
-            Connect with Sri Lanka's finest tech professionals. We bridge the gap
-            between exceptional talent and transformative projects, delivering
-            solutions that drive your business forward.
+            Accelerating go-lives, ensuring production-grade quality, and enabling world-class fintech capabilities.
           </motion.p>
 
           <motion.div
@@ -118,16 +108,16 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto group bg-amber-400 hover:bg-amber-500 text-black shadow-lg shadow-amber-500/50 hover:shadow-amber-400/50"
+              className="font-poppins font-semibold text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto group bg-amber-400 hover:bg-amber-500 text-black shadow-lg shadow-amber-500/50 hover:shadow-amber-400/50"
               onClick={() => scrollToSection('contact')}
             >
-              Get Started
+              Book a Consultation
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto border-2 border-[#ffb900] text-[#ffb900] hover:border-[#f99701] hover:text-[#f99701] font-bold bg-[#2a2824] hover:bg-[#33312e] transition-all duration-300 rounded-2xl shadow-xl hover:shadow-amber-500/10 hover:scale-[1.02]"
+              className="font-poppins text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto border-2 border-[#ffb900] text-[#ffb900] hover:border-[#f99701] hover:text-[#f99701] font-bold bg-[#2a2824] hover:bg-[#33312e] transition-all duration-300 rounded-2xl shadow-xl hover:shadow-amber-500/10 hover:scale-[1.02]"
               onClick={() => scrollToSection('about')}
             >
               Learn More

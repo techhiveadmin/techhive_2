@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram, Github, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import logo from '../../assets/TechHive.webp';
 import { motion } from 'motion/react';
 
@@ -13,19 +13,16 @@ export function Footer() {
       { name: 'Testimonials', href: '#testimonials' },
     ],
     services: [
-      { name: 'Web Development', href: '#solutions' },
-      { name: 'Mobile Development', href: '#solutions' },
-      { name: 'Cloud Solutions', href: '#solutions' },
-      { name: 'AI & Machine Learning', href: '#solutions' },
+      { name: 'Managed QA Services', href: '#solutions' },
+      { name: 'Project Based Resources', href: '#solutions' },
+      { name: 'DevOps & Infrastructure', href: '#solutions' },
+      { name: 'UI/UX Design', href: '#solutions' },
+      { name: 'Global Fintech Partnerships', href: '#solutions' },
     ],
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/techhivenation/', label: 'LinkedIn' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -38,7 +35,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-black text-gray-300 relative overflow-hidden">
+    <footer className="bg-black text-gray-300 relative overflow-hidden font-montserrat tracking-wide">
       {/* Honeycomb pattern overlay */}
       <div className="absolute inset-0 honeycomb-pattern opacity-5"></div>
 
@@ -55,13 +52,14 @@ export function Footer() {
         >
           {/* Brand Column */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="flex items-center justify-center sm:justify-start space-x-3 mb-5 sm:mb-6 cursor-pointer focus:outline-none"
               aria-label="Navigate to top"
             >
               <img src={logo} alt="TechHive" className="h-12 sm:h-14 md:h-16 w-auto" />
-            </button>
+            </a>
             <p className="text-gray-400 mb-6 max-w-xs text-sm leading-relaxed mx-auto sm:mx-0">
               Connecting elite tech talent with transformative projects.
               Building the future of technology, one developer at a time.
@@ -74,9 +72,11 @@ export function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-9 h-9 bg-gray-900/50 rounded flex items-center justify-center hover:bg-amber-400 transition-all group border border-gray-800 hover:border-amber-400"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-gray-900/50 rounded-lg flex items-center justify-center hover:bg-amber-400 transition-all group border border-gray-800 hover:border-amber-400"
                   >
-                    <Icon className="w-4 h-4 text-gray-400 group-hover:text-black transition-colors" />
+                    <Icon className="w-6 h-6 text-gray-400 group-hover:text-black transition-colors" />
                   </a>
                 );
               })}
@@ -92,12 +92,13 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
+                  <a
+                    href={link.href}
+                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
                     className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
                   >
                     {link.name}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -109,12 +110,13 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
+                  <a
+                    href={link.href}
+                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
                     className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
                   >
                     {link.name}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>

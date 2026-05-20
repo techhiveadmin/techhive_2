@@ -124,7 +124,7 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-2 bg-amber-400/20 backdrop-blur-sm rounded-full text-amber-400 text-sm font-medium mb-4 border border-amber-400/30">
+          <div className="inline-block text-amber-400 text-sm font-bold tracking-wider uppercase mb-4">
             Client Success Stories
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -165,24 +165,17 @@ export function Testimonials() {
                     </div>
 
                     {/* Content */}
-                    <p className="text-lg sm:text-xl md:text-2xl text-white font-medium mb-6 sm:mb-8 italic leading-relaxed">
+                    <p className="text-base sm:text-xl md:text-2xl text-white font-medium mb-6 sm:mb-8 italic leading-relaxed">
                       "{testimonials[currentIndex].content}"
                     </p>
 
                     {/* Author */}
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <img
-                        src={testimonials[currentIndex].image}
-                        alt={testimonials[currentIndex].name}
-                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/20 ring-2 ring-amber-400"
-                      />
-                      <div>
-                        <div className="font-bold text-lg">
-                          {testimonials[currentIndex].name}
-                        </div>
-                        <div className="text-amber-400">
-                          {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
-                        </div>
+                    <div className="flex flex-col gap-1">
+                      <div className="font-bold text-base sm:text-lg text-gray-200">
+                        {testimonials[currentIndex].name}
+                      </div>
+                      <div className="text-sm sm:text-base text-amber-400">
+                        {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
                       </div>
                     </div>
                   </motion.div>
@@ -225,30 +218,6 @@ export function Testimonials() {
               </Button>
             </div>
           </Card>
-
-          {/* Stats – now animated */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-10 sm:mt-16 text-center"
-          >
-            <div className="py-2 sm:py-0">
-              <AnimatedCounter end={50} suffix="+" />
-              <div className="text-sm sm:text-base mt-1.5 sm:mt-2 text-gray-300">Happy Clients</div>
-            </div>
-
-            <div className="py-2 sm:py-0">
-              <AnimatedCounter end={150} suffix="+" />
-              <div className="text-sm sm:text-base mt-1.5 sm:mt-2 text-gray-300">Projects Completed</div>
-            </div>
-
-            <div className="py-2 sm:py-0">
-              <AnimatedCounter end={4.9} suffix="" />
-              <div className="text-sm sm:text-base mt-1.5 sm:mt-2 text-gray-300">Average Rating</div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

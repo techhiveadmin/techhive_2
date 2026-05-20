@@ -166,7 +166,7 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-2 bg-amber-100 rounded-full text-amber-800 text-sm font-medium mb-4 border border-amber-200">
+          <div className="inline-block text-amber-600 text-sm font-bold tracking-wider uppercase mb-4">
             Get In Touch
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -198,7 +198,7 @@ export function Contact() {
             <div className="space-y-4 sm:space-y-6">
               <Card className="p-5 sm:p-6 md:p-7 hover:shadow-lg transition-shadow border-l-4 border-l-amber-500 hover:border-l-amber-600">
                 <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 border-2 border-amber-200">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600" />
                   </div>
                   <div>
@@ -212,7 +212,7 @@ export function Contact() {
 
               <Card className="p-5 sm:p-6 md:p-7 hover:shadow-lg transition-shadow border-l-4 border-l-amber-500 hover:border-l-amber-600">
                 <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 border-2 border-amber-200">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600" />
                   </div>
                   <div>
@@ -226,13 +226,13 @@ export function Contact() {
 
               <Card className="p-5 sm:p-6 md:p-7 hover:shadow-lg transition-shadow border-l-4 border-l-amber-500 hover:border-l-amber-600">
                 <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 border-2 border-amber-200">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-base sm:text-lg mb-1">Location</h4>
                     <a
-                      href="https://www.google.com/maps/place/Rich+Blinds+(Pvt)+Ltd/@6.8977775,79.8735088,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae25a2a9656b34b:0xb113c3ebc0b85c89!8m2!3d6.8977722!4d79.8760837!16s%2Fg%2F11c7t44fm2?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D"
+                      href="https://www.google.com/maps/search/?api=1&query=521%2F12+Thimbirigasyaya+Rd%2C+Colombo+00500%2C+Sri+Lanka"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block text-sm sm:text-base text-gray-600 hover:text-amber-600 transition-colors"
@@ -261,7 +261,7 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="order-1 lg:order-2"
           >
-            <Card className="p-6 sm:p-8 md:p-10 border-2 border-amber-100 h-full shadow-xl rounded-2xl">
+            <Card className="p-6 sm:p-8 md:p-10 h-full shadow-lg rounded-2xl">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-2">
@@ -273,7 +273,7 @@ export function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="focus-visible:ring-amber-400"
+                      className="focus-visible:ring-primary/20"
                     />
                     {errors.name && (
                       <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
@@ -292,7 +292,7 @@ export function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="focus-visible:ring-amber-400"
+                      className="focus-visible:ring-primary/20"
                     />
                     {errors.email && (
                       <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
@@ -309,7 +309,7 @@ export function Contact() {
                       placeholder="Your Company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="focus-visible:ring-amber-400"
+                      className="focus-visible:ring-primary/20"
                     />
                   </div>
 
@@ -339,7 +339,7 @@ export function Contact() {
                         onChange={handlePhoneChange}
                         placeholder={new AsYouType(formData.countryCode).getTemplate() || 'Phone number'}
                         maxLength={18}
-                        className="focus-visible:ring-amber-400"
+                        className="focus-visible:ring-primary/20"
                       />
                     </div>
                     {errors.phone && (
@@ -359,7 +359,7 @@ export function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="focus-visible:ring-amber-400"
+                      className="focus-visible:ring-primary/20"
                     />
                     {errors.message && (
                       <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
@@ -370,7 +370,7 @@ export function Contact() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-amber-400 hover:bg-amber-500 text-black shadow-lg shadow-amber-200"
+                    className="w-full bg-amber-400 hover:bg-amber-500 text-black shadow-md"
                     size="lg"
                     disabled={isSubmitting}
                   >
@@ -393,7 +393,7 @@ export function Contact() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                    className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mb-6 border-2 border-amber-200"
+                    className="w-20 h-20 flex items-center justify-center mb-6"
                   >
                     <CheckCircle className="w-10 h-10 text-amber-600" />
                   </motion.div>

@@ -1,38 +1,43 @@
-import { CheckCircle, Users, Zap, Award, Clock, DollarSign } from 'lucide-react';
+import { ShieldCheck, Zap, Rocket, Search, BarChart3, Globe, Layout } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
 
 export function WhyUs() {
   const benefits = [
     {
-      icon: Users,
-      title: 'Pre-Vetted Talent',
-      description: 'Every developer undergoes rigorous technical assessments and interviews.',
+      icon: ShieldCheck,
+      title: 'Banking & Fintech Expertise',
+      description: 'Deep domain knowledge in digital banking, payments, and complex fintech ecosystems.',
     },
     {
       icon: Zap,
-      title: 'Rapid Deployment',
-      description: 'Get matched with the perfect developer in as little as 48 hours.',
+      title: 'Automated QA-First',
+      description: 'Comprehensive test cycles that avoid production risks and ensure platform stability.',
     },
     {
-      icon: Award,
-      title: 'Proven Track Record',
-      description: '98% client satisfaction rate and 150+ successful projects delivered.',
+      icon: Rocket,
+      title: 'Rapid Talent Mobilisation',
+      description: 'Swift deployment of specialised banking and fintech professionals at lightning speed.',
     },
     {
-      icon: Clock,
-      title: 'Flexible Engagement',
-      description: 'Hire for projects, part-time, or full-time based on your needs.',
+      icon: Search,
+      title: 'Independent Validation',
+      description: 'Expert, unbiased validation of vendor-built platforms for guaranteed quality.',
     },
     {
-      icon: DollarSign,
-      title: 'Cost-Effective',
-      description: 'Access world-class talent at competitive rates without compromising quality.',
+      icon: BarChart3,
+      title: 'Delivery Visibility',
+      description: 'Measurable delivery metrics and reporting that provide full project transparency.',
     },
     {
-      icon: CheckCircle,
-      title: 'Quality Guarantee',
-      description: 'We stand behind our talent with satisfaction guarantees and ongoing support.',
+      icon: Globe,
+      title: 'Global Fintech Solutions',
+      description: 'Direct access to world-class fintech platforms and global technology insights.',
+    },
+    {
+      icon: Layout,
+      title: 'Flexible Project Alignment',
+      description: 'Scalable engagement models perfectly tailored to your project’s specific needs.',
     },
   ];
 
@@ -69,14 +74,14 @@ export function WhyUs() {
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2"
           >
-            <div className="inline-block px-4 py-2 bg-amber-100 rounded-full text-amber-800 text-sm font-medium mb-4 border border-amber-200">
+            <div className="inline-block text-amber-600 text-sm font-bold tracking-wider uppercase mb-4">
               Why Choose TechHive
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Your Partner in Tech Excellence
             </h2>
             <p className="text-xl text-gray-600 mb-10">
-              We don't just provide developers—we deliver peace of mind. Here's why
+              We don't just provide developers, we deliver peace of mind. Here's why
               leading companies trust TechHive with their most critical projects.
             </p>
 
@@ -93,10 +98,8 @@ export function WhyUs() {
                     transition={{ duration: 0.4, delay: i * 0.08 }}
                     className="flex gap-4"
                   >
-                    <div className="flex-shrink-0">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-lg flex items-center justify-center border-2 border-amber-200">
-                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600" />
-                      </div>
+                    <div className="flex-shrink-0 pt-1">
+                      <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-amber-500" />
                     </div>
                     <div>
                       <h3 className="font-bold mb-1">{benefit.title}</h3>

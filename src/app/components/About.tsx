@@ -1,30 +1,7 @@
-import { Target, Eye, Flag } from 'lucide-react';
-import { Card } from './ui/card';
+import { ShieldCheck, Zap, AlertCircle, TrendingUp, Layers } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function About() {
-  const pillars = [
-    {
-      icon: Target,
-      title: 'Mission',
-      description:
-        'To empower businesses with cutting-edge technology solutions by connecting them with elite tech talent, fostering innovation and driving digital transformation across industries.',
-    },
-    {
-      icon: Eye,
-      title: 'Vision',
-      description:
-        'To be the leading tech talent marketplace in South Asia, recognized for excellence in matching world-class developers with transformative projects that shape the future.',
-    },
-    {
-      icon: Flag,
-      title: 'Objectives',
-      description:
-        'Build a thriving community of tech professionals, deliver exceptional project outcomes, maintain 98%+ client satisfaction, and establish Sri Lanka as a global tech talent hub.',
-    },
-  ];
-
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -52,50 +29,105 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-2 bg-amber-100 rounded-full text-amber-800 text-sm font-medium mb-4 border border-amber-200">
+          <div className="inline-block text-amber-600 text-sm font-bold tracking-wider uppercase mb-4">
             About TechHive
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Building the Future Together
+            Empowering Financial Innovation
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            TechHive is more than a platform—it's a thriving ecosystem where talented
-            developers and innovative companies come together to create exceptional digital experiences.
+            Strategic technology partner for the next generation of banking and fintech platforms.
           </p>
         </motion.div>
 
-        {/* Mission, Vision, Objectives Cards */}
+        {/* Narrative Bridge Layout */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto mb-20"
         >
-          {pillars.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <motion.div key={pillar.title} variants={itemVariants} className="h-full">
-                <div className="group relative bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-amber-100 h-full overflow-hidden z-10">
-                  {/* Icon — scaled responsively */}
-                  <div className="mb-4 sm:mb-6 inline-block">
-                    <Icon className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#ffc900] stroke-[1.5]" />
+          <div className="relative">
+            {/* The Bridge Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-11 gap-4 items-stretch px-4 sm:px-0">
+              {/* Left Side: The Challenge */}
+              <div className="lg:col-span-4 bg-white/60 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm relative overflow-hidden group">
+                <div className="absolute top-0 left-0 w-1 h-full bg-amber-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="pt-0.5">
+                    <TrendingUp className="w-6 h-6 text-amber-500" />
                   </div>
-
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{pillar.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {pillar.description}
-                  </p>
-
-                  {/* Decorative hexagon element — optional: you can also tint this if you want */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#ffc900]/5 hexagon -z-10 group-hover:scale-150 transition-transform duration-500 blur-xl"></div>
-
-                  {/* Bottom accent line — changed to #ffc900 */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#ffc900] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+                  <h3 className="text-xl font-bold text-gray-900">The Industry Challenge</h3>
                 </div>
-              </motion.div>
-            );
-          })}
+                <div className="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+                  <p>
+                    Banks and fintechs today are under pressure to launch faster while
+                    maintaining stability, compliance, and customer trust.
+                  </p>
+                  <p className="flex gap-3">
+                    <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-1" />
+                    <span>
+                      Yet many releases still go live with limited validation, leading to defects, 
+                      performance issues, and customer impact.
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Center: The Bridge */}
+              <div className="lg:col-span-3 flex flex-col items-center justify-center py-8 lg:py-0 px-4">
+                <div className="w-full flex items-center justify-center relative">
+                  <div className="absolute w-[200%] h-[1px] bg-gradient-to-r from-transparent via-amber-300 to-transparent hidden lg:block"></div>
+                  <motion.div 
+                    animate={{ 
+                      scale: [1, 1.1, 1],
+                      boxShadow: ["0 0 0px #fbbf24", "0 0 15px #fbbf24", "0 0 0px #fbbf24"]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="z-10 bg-amber-400 p-4 rounded-full shadow-lg shadow-amber-400/50 flex items-center justify-center"
+                  >
+                    <Zap className="w-8 h-8 text-black fill-black" />
+                  </motion.div>
+                </div>
+                <div className="mt-6 text-center">
+                  <span className="text-lg sm:text-xl font-black uppercase tracking-widest text-amber-600 bg-amber-50 px-5 py-1.5 rounded-full border border-amber-200 inline-block shadow-sm mb-2">
+                    THE BRIDGE
+                  </span>
+                  <p className="mt-2 text-sm sm:text-base font-semibold text-gray-600 italic">
+                    "Tech Hive bridges this gap."
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Side: The Solution */}
+              <div className="lg:col-span-4 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 sm:p-8 border border-gray-700 shadow-xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-1 h-full bg-amber-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="pt-0.5">
+                    <ShieldCheck className="w-6 h-6 text-amber-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Full Strategic Delivery</h3>
+                </div>
+                <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                  <p>
+                    We provide high-quality resources for your entity’s special projects 
+                    at <strong>lightning speed</strong>, ensuring your innovations are production-ready.
+                  </p>
+                  <p className="flex gap-3">
+                    <Layers className="w-5 h-5 text-amber-400 shrink-0 mt-1" />
+                    <span>
+                      We combine fintech expertise, structured QA automation, and global 
+                      partnerships to ensure every platform is built, tested, and launched right.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Connecting mobile line */}
+            <div className="lg:hidden absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-amber-300 to-transparent -translate-x-1/2 -z-10"></div>
+          </div>
         </motion.div>
 
         {/* Company Description */}
@@ -110,24 +142,15 @@ export function About() {
             <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">
               Who We Are
             </h3>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-6 text-gray-700 leading-relaxed text-lg text-center font-medium">
               <p>
-                Founded in the heart of Sri Lanka's burgeoning tech ecosystem, TechHive
-                has quickly become the go-to platform for companies seeking top-tier
-                technical talent. We understand that great software isn't just about
-                code—it's about the brilliant minds behind it.
+                Tech Hive is a Banking & Fintech focused technology partner supporting banks, payment providers, and digital platforms.
               </p>
               <p>
-                Our rigorous vetting process ensures that every developer in our network
-                represents the best of Sri Lankan tech talent. From full-stack developers
-                to specialized AI engineers, from mobile app wizards to cloud architects—we
-                have the expertise your project needs.
+                We go beyond traditional resourcing by embedding domain expertise, structured delivery, and quality assurance into every engagement.
               </p>
               <p>
-                What sets us apart is our commitment to quality, transparency, and
-                long-term partnerships. We don't just connect you with developers; we
-                ensure they're the perfect fit for your project's unique requirements
-                and company culture.
+                Our teams operate as an extension of your organisation, ensuring accountability, speed, and measurable outcomes.
               </p>
             </div>
           </div>
