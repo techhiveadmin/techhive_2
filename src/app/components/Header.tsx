@@ -9,10 +9,15 @@ type ServiceGroup = { heading: string; links: ServiceLink[] };
 
 const serviceGroups: ServiceGroup[] = [
   {
-    heading: 'QA & Talent',
+    heading: 'QA Automation',
     links: [
-      { name: 'QA Automation', href: '/qa-automation' },
-      { name: 'IT Staff Augmentation', href: '/staff-augmentation' },
+      { name: 'QA Automation Overview', href: '/qa-automation' },
+      { name: 'Fintech QA Automation', href: '/qa-automation/fintech' },
+      { name: 'Banking QA Automation', href: '/qa-automation/banking' },
+      { name: 'Payment Gateway Testing', href: '/qa-automation/payment-gateways' },
+      { name: 'PCI-DSS Compliance Testing', href: '/qa-automation/pci-dss' },
+      { name: 'Open Banking API Testing', href: '/qa-automation/open-banking' },
+      { name: 'Performance Testing', href: '/qa-automation/performance-testing' },
     ],
   },
   {
@@ -32,9 +37,10 @@ const serviceGroups: ServiceGroup[] = [
     ],
   },
   {
-    heading: 'Resources',
+    heading: 'Talent & Resources',
     links: [
-      { name: 'Staff Augmentation vs Outsourcing', href: '/blog/staff-augmentation-vs-outsourcing' },
+      { name: 'IT Staff Augmentation', href: '/staff-augmentation' },
+      { name: 'Staff Aug vs Outsourcing (Blog)', href: '/blog/staff-augmentation-vs-outsourcing' },
     ],
   },
 ];
@@ -149,21 +155,21 @@ export function Header() {
 
               {isServicesOpen && (
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[640px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[920px] max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
                   role="menu"
                 >
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-6 p-6">
+                  <div className="grid grid-cols-4 gap-x-5 gap-y-6 p-6">
                     {serviceGroups.map((group) => (
                       <div key={group.heading}>
-                        <h4 className="text-amber-600 text-xs font-bold tracking-wider uppercase mb-3">
+                        <h4 className="text-amber-600 text-xs font-bold tracking-wider uppercase mb-3 pb-2 border-b border-amber-100">
                           {group.heading}
                         </h4>
-                        <ul className="space-y-1.5">
+                        <ul className="space-y-1">
                           {group.links.map((link) => (
                             <li key={link.href}>
                               <button
                                 onClick={() => goToPage(link.href)}
-                                className="block w-full text-left text-sm text-gray-700 hover:text-amber-500 hover:bg-amber-50 px-2 py-1.5 -mx-2 rounded-md transition-colors font-medium"
+                                className="block w-full text-left text-sm text-gray-700 hover:text-amber-500 hover:bg-amber-50 px-2 py-1.5 -mx-2 rounded-md transition-colors font-medium leading-snug"
                                 role="menuitem"
                               >
                                 {link.name}
