@@ -1,23 +1,29 @@
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router';
 import logo from '../../assets/TechHive.webp';
 import { motion } from 'motion/react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const footerLinks = {
     company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Our Solutions', href: '#solutions' },
-      { name: 'Why TechHive', href: '#why-us' },
-      { name: 'Testimonials', href: '#testimonials' },
+      { name: 'About Us', href: '/#about' },
+      { name: 'Our Solutions', href: '/#solutions' },
+      { name: 'Why TechHive', href: '/#why-us' },
+      { name: 'Testimonials', href: '/#testimonials' },
     ],
     services: [
-      { name: 'Managed QA Services', href: '#solutions' },
-      { name: 'Project Based Resources', href: '#solutions' },
-      { name: 'DevOps & Infrastructure', href: '#solutions' },
-      { name: 'UI/UX Design', href: '#solutions' },
-      { name: 'Global Fintech Partnerships', href: '#solutions' },
+      { name: 'QA Automation', href: '/qa-automation' },
+      { name: 'IT Staff Augmentation', href: '/staff-augmentation' },
+      { name: 'Fintech Software Development', href: '/software-development/fintech' },
+      { name: 'Banking Software Development', href: '/software-development/banking' },
+      { name: 'Payment Gateway Integration', href: '/software-development/payment-gateway' },
+      { name: 'Fintech Mobile Apps', href: '/software-development/mobile-app/fintech' },
+      { name: 'UX Audit', href: '/ui-ux-design/ux-audit' },
+      { name: 'Fintech UI/UX Design', href: '/ui-ux-design/fintech' },
     ],
   };
 
@@ -25,12 +31,18 @@ export function Footer() {
     { icon: Linkedin, href: 'https://www.linkedin.com/company/techhivenation/', label: 'LinkedIn' },
   ];
 
-  const scrollToSection = (href: string) => {
-    if (href.startsWith('#')) {
-      const element = document.getElementById(href.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+  const handleLinkClick = (href: string) => {
+    if (href.startsWith('/#')) {
+      const id = href.substring(2);
+      if (location.pathname === '/') {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate(`/#${id}`);
       }
+    } else {
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'auto' });
     }
   };
 
@@ -53,8 +65,15 @@ export function Footer() {
           {/* Brand Column */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                if (location.pathname === '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  navigate('/');
+                }
+              }}
               className="flex items-center justify-center sm:justify-start space-x-3 mb-5 sm:mb-6 cursor-pointer focus:outline-none"
               aria-label="Navigate to top"
             >
@@ -94,7 +113,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                    onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
                     className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
                   >
                     {link.name}
@@ -112,7 +131,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                    onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
                     className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
                   >
                     {link.name}

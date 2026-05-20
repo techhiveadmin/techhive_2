@@ -1,27 +1,31 @@
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Solutions } from './components/Solutions';
-import { WhyUs } from './components/WhyUs';
-import { Credibility } from './components/Credibility';
-import { Testimonials } from './components/Testimonials';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router';
+
+import Home from './pages/Home';
+import StaffAugmentation from './pages/StaffAugmentation';
+import QaAutomation from './pages/QaAutomation';
+import FintechSoftware from './pages/FintechSoftware';
+import BankingSoftware from './pages/BankingSoftware';
+import PaymentGateway from './pages/PaymentGateway';
+import MobileFintech from './pages/MobileFintech';
+import UxAudit from './pages/UxAudit';
+import UiUxFintech from './pages/UiUxFintech';
+import BlogStaffAugmentationVsOutsourcing from './pages/BlogStaffAugmentationVsOutsourcing';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Solutions />
-        <WhyUs />
-        <Credibility />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/staff-augmentation" element={<StaffAugmentation />} />
+        <Route path="/software-development/fintech" element={<FintechSoftware />} />
+        <Route path="/qa-automation" element={<QaAutomation />} />
+        <Route path="/ui-ux-design/ux-audit" element={<UxAudit />} />
+        <Route path="/software-development/banking" element={<BankingSoftware />} />
+        <Route path="/blog/staff-augmentation-vs-outsourcing" element={<BlogStaffAugmentationVsOutsourcing />} />
+        <Route path="/software-development/payment-gateway" element={<PaymentGateway />} />
+        <Route path="/software-development/mobile-app/fintech" element={<MobileFintech />} />
+        <Route path="/ui-ux-design/fintech" element={<UiUxFintech />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
